@@ -56,17 +56,17 @@ class App extends React.Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
-      <section class="container">
+      <section className="container">
         {isLoading ?
-          <div class="loader">
-            <span class="loader__text"> Загрузка...</span>
-
+          <div className="loader">
+            <span className="loader__text"> Загрузка...</span>
+            {/* в классы что в html нужна писать не класс а className */}
           </div>
           // ? "Загрузка..."
           : movies.map((movie) => {
             console.log(movie);
             return (
-              <div class="muvies">
+              <div className="muvies">
                 <Movie
                   key={movie.id}
                   id={movie.id}
@@ -74,8 +74,9 @@ class App extends React.Component {
                   title={movie.title}
                   summary={movie.summery}
                   poster={movie.medium_cover_image}
+                  genres={movie.genres}
                 />
-              </div>
+              </div> 
             );
           })}
       </section >
@@ -83,11 +84,10 @@ class App extends React.Component {
   }
 }
 
-// вместо конструкции с ?
-// if (isLoading {
-// "Loading..."
-// }  else {
-// "страница звгружена"
-// }
+
 
 export default App;
+
+
+// как оформлять label в реакт
+{/* <label htmlFor=""></label> */}
