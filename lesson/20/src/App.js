@@ -57,30 +57,29 @@ class App extends React.Component {
     const { isLoading, movies } = this.state;
     return (
       <section className="container">
-        {isLoading ? (
+        {isLoading ?
           <div className="loader">
             <span className="loader__text"> Загрузка...</span>
             {/* в классы что в html нужна писать не класс а className */}
           </div>
           // ? "Загрузка..."
-          ) : (
-          <div className="movies">
-          { movies.map((movie) => (
-            // console.log(movie);
-            // return (
+          : movies.map((movie) => {
+            console.log(movie);
+            return (
+              <div className="muvies">
                 <Movie
                   key={movie.id}
                   id={movie.id}
                   year={movie.year}
                   title={movie.title}
-                  summary={movie.summary}
+                  summary={movie.summery}
                   poster={movie.medium_cover_image}
                   genres={movie.genres}
-            />
-          ))}
-          </div>
-        )}
-      </section>
+                />
+              </div> 
+            );
+          })}
+      </section >
     );
   }
 }
